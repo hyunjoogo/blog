@@ -1,4 +1,4 @@
-import React from "react";
+import React, {createElement} from "react";
 import styled from "styled-components";
 
 const ModalBox = styled.div`
@@ -15,18 +15,12 @@ const ModalBox = styled.div`
   letter-spacing: -1px;
 `;
 
-const ModalLayout = ({child, isOpenModal, setContent}) => {
+const ModalLayout = (props) => {
+  const {children, setContent, isOpenModal} = props;
   return (
-    <>
-      {isOpenModal ?
-        <>
-          <ModalBox>
-            {React.cloneElement(child, {
-              setContent: setContent
-            })}
-          </ModalBox>
-        </> : null}
-    </>
+    <ModalBox>
+      {React.cloneElement(children, {setContent, isOpenModal})}
+    </ModalBox>
   )
 }
 

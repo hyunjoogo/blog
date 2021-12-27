@@ -14,6 +14,7 @@ const Home = () => {
   return (
     <>
       <TitleLink href="modalContentChange">#1. Modal 내용을 바꾸어보자</TitleLink>
+      <TitleLink href="accordion">#2. Accordion </TitleLink>
     </>
   )
 }

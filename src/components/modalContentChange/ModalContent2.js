@@ -1,7 +1,7 @@
 import ModalContent1 from "./ModalContent1";
 
 const ModalContent2 = ({setContent}) => {
-
+  console.log(setContent)
   return (
     <>
       <h1>컨텐츠2</h1>
