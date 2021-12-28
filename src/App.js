@@ -5,6 +5,8 @@ import {createGlobalStyle} from "styled-components";
 import Dropdown from "./components/Dropdown/Dropdown";
 import ModalContentChange from "./components/modalContentChange/ModalContentChange";
 import Accordions from "./components/Accordion/Accordion";
+import LinkWithState from "./components/Link/LinkWithState";
+import LinkWithStateTest from "./components/Link/LinkWithStateTest";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -85,6 +87,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="modalContentChange" element={<ModalContentChange />} />
         <Route path="accordion" element={<Accordions />} />
+        <Route path="link" element={<LinkWithState />} />
+        <Route path="link-test" element={<LinkWithStateTest />} />
+
       </Routes>
     </>
   );
