@@ -20,6 +20,9 @@ const Home = () => {
       <TitleLink href="link">
         <h1>#3. 리액트 라우터를 이용해서 state 보내기</h1>
       </TitleLink>
+      <TitleLink href="browser-language">
+        <h1>#4. 브라우저 언어 확인하기</h1>
+      </TitleLink>
     </>
   )
 }

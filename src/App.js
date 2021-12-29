@@ -7,6 +7,7 @@ import ModalContentChange from "./components/modalContentChange/ModalContentChan
 import Accordions from "./components/Accordion/Accordion";
 import LinkWithState from "./components/Link/LinkWithState";
 import LinkWithStateTest from "./components/Link/LinkWithStateTest";
+import BrowserLanguage from "./components/browseLanguage/BrowserLanguage";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -89,6 +90,7 @@ function App() {
         <Route path="accordion" element={<Accordions />} />
         <Route path="link" element={<LinkWithState />} />
         <Route path="link-test" element={<LinkWithStateTest />} />
+        <Route path="browser-language" element={<BrowserLanguage />} />
 
       </Routes>
     </>
