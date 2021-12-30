@@ -25,38 +25,55 @@ const currentItems = [
 ]
 
 const Accordions = () => {
-  const [openAccordionIndex, setOpenAccordionIndex] = useState();
-  const [isExpand, setIsExpand] = useState(false);
+  //1. 현재 열려있는 자식 아이디를 set하기
+  const [expandId, setExpandId] = useState();
 
-  const handleContents = (id) => {
-    console.log(id)
-    currentItems.map((item) =>
-      item.id !== id
-        ? console.log('다름', item.id !== id)
-        : console.log('같아!', item.id !== id))
 
-    setIsExpand(prev => !prev);
-  }
+  // const [openAccordionIndex, setOpenAccordionIndex] = useState();
+  // const [isExpand, setIsExpand] = useState(false);
+
+  // const handleContents = (id) => {
+  //   console.log(id)
+  //   currentItems.map((item) =>
+  //     item.id !== id
+  //       ? console.log('다름', item.id !== id)
+  //       : console.log('같아!', item.id !== id))
+  //
+  //   setIsExpand(prev => !prev);
+  // }
 
   return (
     <>
       <p>다른 컨텐츠가 열면 열려있던 컨텐츠가 닫혀야합니다.</p>
-      {currentItems.map((item) => (
-        <div key={item.id}>
-          <AccordionInner item={item} handleContents={handleContents} isExpand={isExpand}/>
+      {/*{currentItems.map((item) => (*/}
+      {/*  <div key={item.id}>*/}
+      {/*    <AccordionInner item={item} handleContents={handleContents} isExpand={isExpand}/>*/}
+      {/*  </div>*/}
+      {/*))}*/}
+      {currentItems.map((item, index) => (
+        <div key={index}>
+          <AccordionInner
+            item={item}
+            // 2. isExpand => 클릭한 놈의 아이디를 현재 열려있는 자식 아이디가 같다면 열리게 함
+            // 다르면 접어!
+            isExpand={expandId === item.id}
+            // 3. onExpand => 클릭한 놈의 아이디를 현재 열려있는 자식 아이디로 세팅
+            onExpand={() => setExpandId(item.id)}
+          />
         </div>
       ))}
     </>
   )
 }
 
-const AccordionInner = ({item, index, handleContents, isExpand}) => {
+const AccordionInner = ({item, isExpand, onExpand}) => {
 
 
   return (
     <>
-      {item.title} / {item.id}
-      <button onClick={() => handleContents(item.id)}>+</button>
+      {item.title}
+      {/*<button onClick={() => handleContents(item.id)}>+</button>*/}
+      <button onClick={onExpand}>+</button>
       {isExpand === true &&
       <div>{item.contents}</div>}
     </>
