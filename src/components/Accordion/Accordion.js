@@ -58,7 +58,11 @@ const Accordions = () => {
             // 다르면 접어!
             isExpand={expandId === item.id}
             // 3. onExpand => 클릭한 놈의 아이디를 현재 열려있는 자식 아이디로 세팅
-            onExpand={() => setExpandId(item.id)}
+            // onExpand={() => setExpandId(item.id)}
+            // 4. 같은 버튼 눌렀을 때 다시 닫히게 하기
+            // 클릭한 놈의 아이디와 현재 열려있는 자식의 아이디가 똑같으면
+            // expandId를 null 로 변경하기
+            onExpand={() => expandId === item.id ? setExpandId(null) :setExpandId(item.id)}
           />
         </div>
       ))}
@@ -72,7 +76,6 @@ const AccordionInner = ({item, isExpand, onExpand}) => {
   return (
     <>
       {item.title}
-      {/*<button onClick={() => handleContents(item.id)}>+</button>*/}
       <button onClick={onExpand}>+</button>
       {isExpand === true &&
       <div>{item.contents}</div>}
