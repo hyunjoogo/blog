@@ -23,6 +23,9 @@ const Home = () => {
       <TitleLink href="browser-language">
         <h1>#4. 브라우저 언어 확인하기</h1>
       </TitleLink>
+      <TitleLink href="dataStructure">
+        <h1>#5. 자료구조 가지고 놀기</h1>
+      </TitleLink>
     </>
   )
 }
